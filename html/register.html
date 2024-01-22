@@ -111,15 +111,15 @@
               <label class="form-label">Mês</label>
               <select class="form-control" id="inputMes" required="required">
                 <option>Selecione o Mês de Referência</option>
-                <option value="1">Janeiro</option>
-                <option value="2">Fevereiro</option>
-                <option value="3">Março</option>
-                <option value="4">Abril</option>
-                <option value="5">Maio</option>
-                <option value="6">Junho</option>
-                <option value="7">Julho</option>
-                <option value="8">Agosto</option>
-                <option value="9">Setembro</option>
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
                 <option value="10">Outubro</option>
                 <option value="11">Novembro</option>
                 <option value="12">Dezembro</option>
@@ -186,7 +186,6 @@
                   onclick="desativar(repetir, aleatorio)"
                   class="form-check-input"
                   type="checkbox"
-                  th:field="*{repetir}"
                   id="checkRepetir"
                 />
                 <label class="form-check-label" th:for="repetir">
@@ -194,31 +193,7 @@
                 </label>
               </div>
             </div>
-            <div class="col-6">
-              <div class="form-check">
-                <input
-                  onclick="desativar(aleatorio, repetir)"
-                  class="form-check-input"
-                  type="checkbox"
-                  th:field="*{aleatorio}"
-                  id="checkAleatorio"
-                />
-                <label class="form-check-label" th:for="aleatorio">
-                  Criar horários aleatórios
-                </label>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="checkSalvar"
-                />
-                <label class="form-check-label"> Salvar Dados </label>
-              </div>
-            </div>
-            <div class="col-6">
+            <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
               <a
                 onclick="limparDados()"
                 href="/html/register.html"
@@ -226,6 +201,19 @@
                 class="btn btn-secondary btn-sm"
                 >Limpar Dados</a
               >
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input
+                  onclick="desativar(aleatorio, repetir)"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="checkAleatorio"
+                />
+                <label class="form-check-label" th:for="aleatorio">
+                  Criar horários aleatórios
+                </label>
+              </div>
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-light">

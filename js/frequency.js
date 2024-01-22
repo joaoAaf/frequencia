@@ -1,3 +1,5 @@
+let dados = JSON.parse(localStorage.getItem('frequencyData'))
+
 function criaDia(dia) {
     let tr = document.createElement('tr')
     let num = dia[2].getDay()
@@ -30,10 +32,10 @@ function criaDia(dia) {
 }
 
 function opcaoHorario(hora) {
-    if (repetir == true || (aleatorio == true && repetir == true)) {
+    if (dados.repetir == true || (dados.aleatorio == true && dados.repetir == true)) {
         return hora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
     }
-    else if (aleatorio == true) {
+    else if (dados.aleatorio == true) {
         const horaAleatoria = new Date(hora)
         let num = Math.floor(Math.random() * 19) - 9
         horaAleatoria.setMinutes(hora.getMinutes() + num)
@@ -44,22 +46,33 @@ function opcaoHorario(hora) {
     }
 }
 
+document.getElementById('servidor').innerHTML = dados.nome
+document.getElementById('matricula').innerHTML = dados.matricula
+document.getElementById('cargo').innerHTML = dados.cargo
+document.getElementById('funcao').innerHTML = dados.funcao
+document.getElementById('lotacao').innerHTML = dados.lotacao
+document.getElementById('setor').innerHTML = dados.setor
+document.getElementById('jornada').innerHTML = dados.jornada+" Horas Semanais"
+document.getElementById('entrada').innerHTML = dados.entrada1
+document.getElementById('saida').innerHTML = dados.saida2
+document.getElementById('assServidor').innerHTML = dados.nome
+document.getElementById('assCargo').innerHTML = dados.cargo
+document.getElementById('chefia').innerHTML = dados.chefia
+document.getElementById('cargoChefia').innerHTML = dados.cargoChefia
+
 let tbody = document.getElementById('tboby_frequency')
 
-const ultimoDia = new Date(dia[0])
+const dia = [new Date(dados.ano+"-"+dados.mes+"-01T"+dados.entrada1), new Date(dados.ano+"-"+dados.mes+"-01T"+dados.saida1), 
+    new Date(dados.ano+"-"+dados.mes+"-01T00:00"), new Date(dados.ano+"-"+dados.mes+"-01T"+dados.entrada2), 
+    new Date(dados.ano+"-"+dados.mes+"-01T"+dados.saida2)]
+
+const ultimoDia = new Date(dados.ano+"-"+dados.mes+"-01T00:00")
 ultimoDia.setMonth(ultimoDia.getMonth() + 1)
 ultimoDia.setDate(ultimoDia.getDate() - 1)
 
-dia.splice(2, 0, dia[0])
-const horasDia = []
-
-for (i = 0; i < 5; i++) {
-    horasDia.push(new Date(dia[i]))
-}
-
 for (i = 1; i <= ultimoDia.getDate(); i++) {
-    tbody.appendChild(criaDia(horasDia))
-    horasDia[2].setDate(horasDia[2].getDate() + 1)
+    tbody.appendChild(criaDia(dia))
+    dia[2].setDate(dia[2].getDate() + 1)
 }
 
 let tr = document.createElement('tr')
@@ -69,6 +82,3 @@ for (i = 0; i < 5; i++) {
     tr.appendChild(td)
 }
 tbody.appendChild(tr)
-
-
-

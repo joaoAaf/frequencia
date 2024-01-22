@@ -71,7 +71,6 @@
         <div id="frequency">
           <table
             id="table_frequency1"
-            border="1"
             style="
               margin-left: auto;
               margin-right: auto;
@@ -103,11 +102,11 @@
                 >
                   <strong>SERVIDOR: </strong>
                 </td>
-                <td style="border: none" th:text="${data.nome}"></td>
+                <td style="border: none" id="servidor"></td>
                 <td style="border: none; width: 0">
                   <strong>MATRÍCULA:</strong>
                 </td>
-                <td style="border: none" th:text="${data.matricula}"></td>
+                <td style="border: none" id="matricula"></td>
               </tr>
               <tr>
                 <td
@@ -119,11 +118,11 @@
                 >
                   <strong>CARGO:</strong>
                 </td>
-                <td style="border: none" th:text="${data.cargo}"></td>
+                <td style="border: none" id="cargo"></td>
                 <td style="border: none">
                   <strong>FUNÇÃO:</strong>
                 </td>
-                <td style="border: none" th:text="${data.funcao}"></td>
+                <td style="border: none" id="funcao"></td>
               </tr>
               <tr>
                 <td
@@ -135,11 +134,11 @@
                 >
                   <strong>LOTAÇÃO:</strong>
                 </td>
-                <td style="border: none" th:text="${data.lotacao}"></td>
+                <td style="border: none" id="lotacao"></td>
                 <td style="border: none">
                   <strong>JORNADA:</strong>
                 </td>
-                <td style="border: none" th:text="${data.jornada}"></td>
+                <td style="border: none" id="jornada"></td>
               </tr>
               <tr>
                 <td
@@ -151,17 +150,17 @@
                 >
                   <strong>SETOR:</strong>
                 </td>
-                <td style="border: none" th:text="${data.setor}"></td>
+                <td style="border: none" id="setor"></td>
                 <td style="border: none">
                   <strong>HORÁRIO:</strong>
                 </td>
                 <td style="border: none">
                   <span
-                    th:text="${#temporals.format(data.dia[0], 'HH:mm')}"
+                    id="entrada"
                   ></span>
                   às
                   <span
-                    th:text="${#temporals.format(data.dia[3], 'HH:mm')}"
+                    id="saida"
                   ></span>
                 </td>
               </tr>
@@ -169,7 +168,6 @@
           </table>
           <table
             id="table_frequency2"
-            border="1"
             style="
               margin-left: auto;
               margin-right: auto;
@@ -231,14 +229,14 @@
           <br />
           <div style="text-align: center">
             <p>
-              <span th:text="${data.nome.toUpperCase()}"></span>
+              <span id="assServidor"></span>
               <br />
-              <span th:text="${data.cargo}"></span>
+              <span id="assCargo"></span>
             </p>
             <p>
-              <span th:text="${data.chefia.toUpperCase()}"></span>
+              <span id="chefia"></span>
               <br />
-              <span th:text="${data.cargoChefia}"></span>
+              <span id="cargoChefia"></span>
             </p>
           </div>
         </div>
@@ -248,7 +246,7 @@
         <p>
           Criado por
           <a
-            href="https://github.com/joaoAaf/gerador_frequencia"
+            href="https://github.com/joaoAaf/frequencia"
             class="text-white"
             >João Anderson</a
           >
@@ -263,6 +261,5 @@
     ></script>
     <script src="/js/frequency.js"></script>
     <script src="/js/createHTML.js"></script>
-    <script src="/js/saveData.js"></script>
   </body>
 </html>
