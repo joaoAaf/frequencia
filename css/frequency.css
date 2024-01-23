@@ -25,10 +25,6 @@ main {
     max-width: 74%;
 }
 
-.td_horarios{
-    border: 0.5px solid black;
-}
-
 #frequency {
     place-items: center;
     color: black;

@@ -5,7 +5,7 @@ function criaDia(dia) {
     let num = dia[2].getDay()
     for (j = 0; j < dia.length; j++) {
         let td = document.createElement('td')
-        td.className = "td_horarios"
+        td.style = "border: 0.5px solid black"
         if (j == 2) {
             td.innerHTML = dia[2].getDate()
         }
@@ -37,7 +37,7 @@ function opcaoHorario(hora) {
     }
     else if (dados.aleatorio == true) {
         const horaAleatoria = new Date(hora)
-        let num = Math.floor(Math.random() * 19) - 9
+        let num = Math.floor(Math.random() * 5) - 2
         horaAleatoria.setMinutes(hora.getMinutes() + num)
         return horaAleatoria.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
     }
@@ -55,9 +55,9 @@ document.getElementById('setor').innerHTML = dados.setor
 document.getElementById('jornada').innerHTML = dados.jornada+" Horas Semanais"
 document.getElementById('entrada').innerHTML = dados.entrada1
 document.getElementById('saida').innerHTML = dados.saida2
-document.getElementById('assServidor').innerHTML = dados.nome
+document.getElementById('assServidor').innerHTML = dados.nome.toUpperCase()
 document.getElementById('assCargo').innerHTML = dados.cargo
-document.getElementById('chefia').innerHTML = dados.chefia
+document.getElementById('chefia').innerHTML = dados.chefia.toUpperCase()
 document.getElementById('cargoChefia').innerHTML = dados.cargoChefia
 
 let tbody = document.getElementById('tboby_frequency')
