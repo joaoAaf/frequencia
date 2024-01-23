@@ -32,7 +32,7 @@ function criaDia(dia) {
 }
 
 function opcaoHorario(hora) {
-    if (dados.ausencia != "" && hora >= dados.ausenciaInicio && hora <= dados.ausenciaFim) {
+    if (dados.ausencia != "" && hora >= new Date(dados.ausenciaInicio+"T00:00") && hora <= new Date(dados.ausenciaFim+"T23:59")) {
         return dados.ausencia
     }
     else if (dados.repetir == true || (dados.aleatorio == true && dados.repetir == true)) {
@@ -75,7 +75,10 @@ ultimoDia.setDate(ultimoDia.getDate() - 1)
 
 for (i = 1; i <= ultimoDia.getDate(); i++) {
     tbody.appendChild(criaDia(dia))
-    dia[2].setDate(dia[2].getDate() + 1)
+    // dia[2].setDate(dia[2].getDate() + 1)
+    for (j = 0; j < 5; j++) {
+        dia[j].setDate(dia[j].getDate() + 1)
+    }
 }
 
 let tr = document.createElement('tr')
