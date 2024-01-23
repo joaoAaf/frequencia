@@ -172,12 +172,37 @@
               />
             </div>
             <div class="col-md-3">
-              <label th:for="saida2" class="form-label">Saída 2</label>
+              <label class="form-label">Saída 2</label>
               <input
                 type="time"
                 class="form-control"
                 id="inputSaida2"
                 required="required"
+              />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Ausencias</label>
+              <select class="form-control" id="inputAusencia">
+                <option value="">Selecione o Tipo de Ausencia</option>
+                <option>Férias</option>
+                <option>Licença Trat. Saúde</option>
+                <option>Licença</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Inicio Ausencia</label>
+              <input
+                type="date"
+                class="form-control"
+                id="inputInicio"
+              />
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Fim Ausencia</label>
+              <input
+                type="date"
+                class="form-control"
+                id="inputFim"
               />
             </div>
             <div class="col-6">

@@ -32,7 +32,10 @@ function criaDia(dia) {
 }
 
 function opcaoHorario(hora) {
-    if (dados.repetir == true || (dados.aleatorio == true && dados.repetir == true)) {
+    if (dados.ausencia != "" && hora >= dados.ausenciaInicio && hora <= dados.ausenciaFim) {
+        return dados.ausencia
+    }
+    else if (dados.repetir == true || (dados.aleatorio == true && dados.repetir == true)) {
         return hora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
     }
     else if (dados.aleatorio == true) {

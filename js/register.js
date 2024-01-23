@@ -19,6 +19,9 @@ register.addEventListener("submit", async function (event) {
         "saida1": document.getElementById("inputSaida1").value,
         "entrada2": document.getElementById("inputEntrada2").value,
         "saida2": document.getElementById("inputSaida2").value,
+        "ausencia": document.getElementById("inputAusencia").value,
+        "ausenciaInicio": document.getElementById("inputInicio").value,
+        "ausenciaFim": document.getElementById("inputFim").value,
         "repetir": document.getElementById("checkRepetir").checked,
         "aleatorio": document.getElementById("checkAleatorio").checked 
     }
