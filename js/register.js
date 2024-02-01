@@ -26,5 +26,5 @@ register.addEventListener("submit", async function (event) {
         "aleatorio": document.getElementById("checkAleatorio").checked 
     }
     localStorage.setItem('frequencyData', JSON.stringify(dados))
-    window.location.href = "/frequencia/html/frequency.html"
+    window.location.href = "/html/frequency.html"
 })
