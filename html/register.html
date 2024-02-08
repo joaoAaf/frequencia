@@ -180,29 +180,29 @@
                 required="required"
               />
             </div>
-            <div class="col-md-6">
+            <div id="ausencias" class="col-md-6">
               <label class="form-label">Ausencias</label>
-              <select class="form-control" id="inputAusencia">
+              <select class="form-control" id="inputAusencia0">
                 <option value="">Selecione o Tipo de Ausencia</option>
                 <option>Férias</option>
                 <option>Licença Trat. Saúde</option>
                 <option>Licença</option>
               </select>
             </div>
-            <div class="col-md-3">
+            <div id="ausenciasInicio" class="col-md-3">
               <label class="form-label">Inicio Ausencia</label>
               <input
                 type="date"
                 class="form-control"
-                id="inputInicio"
+                id="inputInicio0"
               />
             </div>
-            <div class="col-md-3">
+            <div id="ausenciasFim" class="col-md-3">
               <label class="form-label">Fim Ausencia</label>
               <input
                 type="date"
                 class="form-control"
-                id="inputFim"
+                id="inputFim0"
               />
             </div>
             <div class="col-6">
@@ -213,8 +213,29 @@
                   type="checkbox"
                   id="checkRepetir"
                 />
-                <label class="form-check-label" th:for="repetir">
+                <label class="form-check-label">
                   Repetir entrada e saída
+                </label>
+              </div>
+            </div>
+            <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
+              <a
+                onclick="criaAusencia()"
+                type="button"
+                class="btn btn-secondary btn-sm"
+                >Nova Ausencia</a
+              >
+            </div>
+            <div class="col-6">
+              <div class="form-check">
+                <input
+                  onclick="desativar(aleatorio, repetir)"
+                  class="form-check-input"
+                  type="checkbox"
+                  id="checkAleatorio"
+                />
+                <label class="form-check-label">
+                  Criar horários aleatórios
                 </label>
               </div>
             </div>
@@ -226,19 +247,6 @@
                 class="btn btn-secondary btn-sm"
                 >Limpar Dados</a
               >
-            </div>
-            <div class="col-12">
-              <div class="form-check">
-                <input
-                  onclick="desativar(aleatorio, repetir)"
-                  class="form-check-input"
-                  type="checkbox"
-                  id="checkAleatorio"
-                />
-                <label class="form-check-label" th:for="aleatorio">
-                  Criar horários aleatórios
-                </label>
-              </div>
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-light">
@@ -270,5 +278,6 @@
     <script src="/js/disableCheck.js"></script>
     <script src="/js/localData.js"></script>
     <script src="/js/register.js"></script>
+    <script src="/js/createAbsence.js"></script>
   </body>
 </html>
