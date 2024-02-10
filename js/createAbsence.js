@@ -15,13 +15,21 @@ function criaAusencia() {
     option1.innerHTML = "Férias"
     select.appendChild(option1)
     let option2 = document.createElement('option')
-    option2.value = "Licença Trat. Saúde"
-    option2.innerHTML = "Licença Trat. Saúde"
+    option2.value = "Licença"
+    option2.innerHTML = "Licença"
     select.appendChild(option2)
     let option3 = document.createElement('option')
-    option3.value = "Licença"
-    option3.innerHTML = "Licença"
+    option3.value = "Licença Trat. Saúde"
+    option3.innerHTML = "Licença Trat. Saúde"
     select.appendChild(option3)
+    let option4 = document.createElement('option')
+    option4.value = "Recesso"
+    option4.innerHTML = "Recesso"
+    select.appendChild(option4)
+    let option5 = document.createElement('option')
+    option5.value = "Feriado"
+    option5.innerHTML = "Feriado"
+    select.appendChild(option5)
     div.appendChild(br0)
     div.appendChild(select)
     div = document.getElementById('ausenciasInicio')
