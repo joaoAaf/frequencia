@@ -22,7 +22,7 @@ function criaDia(dia) {
                     td.appendChild(strong2)
                     break
                 default:
-                    td.innerHTML = opcaoHorario(dia[j])
+                    td.innerHTML = defineHorario(dia[j])
                     break
             }
         }
@@ -31,17 +31,31 @@ function criaDia(dia) {
     return tr
 }
 
-function opcaoHorario(hora) {
-    if (dados.ausencia != "" && hora >= new Date(dados.ausenciaInicio+"T00:00") && hora <= new Date(dados.ausenciaFim+"T23:59")) {
-        return dados.ausencia
+function verificaAusencia(dataHora) {
+    let indiceAusencia = -1
+    if (dados.ausencia.nome.length > 0) {
+        for (k = 0; k < dados.ausencia.nome.length; k++) {
+            if (dataHora >= new Date(dados.ausencia.inicio[k] + "T00:00") && dataHora <= new Date(dados.ausencia.fim[k] + "T23:59")) {
+                indiceAusencia = k
+                break
+            }
+        }
+    }
+    return indiceAusencia
+}
+
+function defineHorario(dataHora) {
+    let indiceAusencia = verificaAusencia(dataHora)
+    if (indiceAusencia >= 0) {
+        return dados.ausencia.nome[indiceAusencia]
     }
     else if (dados.repetir == true || (dados.aleatorio == true && dados.repetir == true)) {
-        return hora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+        return dataHora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
     }
     else if (dados.aleatorio == true) {
-        const horaAleatoria = new Date(hora)
+        const horaAleatoria = new Date(dataHora)
         let num = Math.floor(Math.random() * 5) - 2
-        horaAleatoria.setMinutes(hora.getMinutes() + num)
+        horaAleatoria.setMinutes(dataHora.getMinutes() + num)
         return horaAleatoria.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
     }
     else {
@@ -55,7 +69,7 @@ document.getElementById('cargo').innerHTML = dados.cargo
 document.getElementById('funcao').innerHTML = dados.funcao
 document.getElementById('lotacao').innerHTML = dados.lotacao
 document.getElementById('setor').innerHTML = dados.setor
-document.getElementById('jornada').innerHTML = dados.jornada+" Horas Semanais"
+document.getElementById('jornada').innerHTML = dados.jornada + " Horas Semanais"
 document.getElementById('entrada').innerHTML = dados.entrada1
 document.getElementById('saida').innerHTML = dados.saida2
 document.getElementById('assServidor').innerHTML = dados.nome.toUpperCase()
@@ -65,11 +79,11 @@ document.getElementById('cargoChefia').innerHTML = dados.cargoChefia
 
 let tbody = document.getElementById('tboby_frequency')
 
-const dia = [new Date(dados.ano+"-"+dados.mes+"-01T"+dados.entrada1), new Date(dados.ano+"-"+dados.mes+"-01T"+dados.saida1), 
-    new Date(dados.ano+"-"+dados.mes+"-01T00:00"), new Date(dados.ano+"-"+dados.mes+"-01T"+dados.entrada2), 
-    new Date(dados.ano+"-"+dados.mes+"-01T"+dados.saida2)]
+const dia = [new Date(dados.ano + "-" + dados.mes + "-01T" + dados.entrada1), new Date(dados.ano + "-" + dados.mes + "-01T" + dados.saida1),
+new Date(dados.ano + "-" + dados.mes + "-01T00:00"), new Date(dados.ano + "-" + dados.mes + "-01T" + dados.entrada2),
+new Date(dados.ano + "-" + dados.mes + "-01T" + dados.saida2)]
 
-const ultimoDia = new Date(dados.ano+"-"+dados.mes+"-01T00:00")
+const ultimoDia = new Date(dados.ano + "-" + dados.mes + "-01T00:00")
 ultimoDia.setMonth(ultimoDia.getMonth() + 1)
 ultimoDia.setDate(ultimoDia.getDate() - 1)
 
