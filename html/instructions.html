@@ -12,24 +12,26 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/pages.css" />
-    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/register.css" />
   </head>
 
-  <body class="d-flex h-100 text-center text-bg-dark">
+  <body class="d-flex h-100 text-bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
+      <header class="mb-auto text-center">
         <div>
           <nav class="nav nav-masthead justify-content-center">
             <a
-              class="nav-link fw-bold py-1 px-0 active"
+              class="nav-link fw-bold py-1 px-0"
               aria-current="page"
-              href="index.html"
+              href="/index.html"
               >Inicio</a
             >
-            <a class="nav-link fw-bold py-1 px-0" href="/html/register.html"
+            <a
+              class="nav-link fw-bold py-1 px-0"
+              href="/html/register.html"
               >Frequência</a
             >
-            <a class="nav-link fw-bold py-1 px-0" href="/html/instructions.html"
+            <a class="nav-link fw-bold py-1 px-0 active" href="/html/instructions.html"
               >Instruções</a
             >
           </nav>
@@ -37,18 +39,19 @@
       </header>
 
       <main class="px-3">
-        <h1>Folha de Frequência</h1>
-        <p class="lead">Preecha seus seu dados e geramos sua frequência</p>
-        <p class="lead">
-          <a
-            href="/html/register.html"
-            class="btn btn-lg btn-light fw-bold border-white bg-white"
-            >Começar Agora</a
-          >
-        </p>
+        <div id="register_div">
+          <h2>Instruções de Uso</h2>
+          <br>
+          <p>1. Clique no botão</p>
+          <img src="/img/Screenshot_20240221_185613.jpg" alt="">
+          <br>
+          <br>
+          <p>1. Clique no botão</p>
+          <img src="/img/Screenshot_20240221_1902242.jpg" alt="">
+        </div>
       </main>
 
-      <footer class="mt-auto text-white-50">
+      <footer class="mt-auto text-white-50 text-center">
         <p>
           Criado por
           <a
@@ -59,10 +62,16 @@
         </p>
       </footer>
     </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/currentYear.js"></script>
+    <script src="/js/disableCheck.js"></script>
+    <script src="/js/localData.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/createAbsence.js"></script>
   </body>
 </html>
