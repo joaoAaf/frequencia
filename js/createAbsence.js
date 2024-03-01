@@ -1,11 +1,10 @@
 var count = 1
 
-function criaAusencia() {
-    let div = document.getElementById('ausencias')
-    let br0 = document.createElement('br')
+function inputAusencia() {
     let select = document.createElement('select')
     select.className = "form-control"
     select.id = "inputAusencia" + count
+    select.onchange = () => inputOutra(select)
     let option0 = document.createElement('option')
     option0.value = ""
     option0.innerHTML = "Selecione o Tipo de Ausencia"
@@ -30,23 +29,67 @@ function criaAusencia() {
     option5.value = "Feriado"
     option5.innerHTML = "Feriado"
     select.appendChild(option5)
+    let option6 = document.createElement('option')
+    option6.value = "Trabalho Remoto"
+    option6.innerHTML = "Trabalho Remoto"
+    select.appendChild(option6)
+    let option7 = document.createElement('option')
+    option7.value = "Outra"
+    option7.innerHTML = "Outra"
+    select.appendChild(option7)
+    return select
+}
+
+function inputInicioFim(prefixId, numId) {
+    let input = document.createElement('input')
+    input.className = "form-control"
+    input.type = "date"
+    input.id = prefixId + numId
+    return input
+}
+
+
+function criaAusencia() {
+    let div = document.getElementById('ausencias')
+    let br0 = document.createElement('br')
+    let select = inputAusencia()
     div.appendChild(br0)
     div.appendChild(select)
     div = document.getElementById('ausenciasInicio')
     let br1 = document.createElement('br')
-    let inputInicio = document.createElement('input')
-    inputInicio.className = "form-control"
-    inputInicio.type = "date"
-    inputInicio.id = "inputInicio" + count
+    let inputInicio = inputInicioFim("inputInicio", count)
     div.appendChild(br1)
     div.appendChild(inputInicio)
     div = document.getElementById('ausenciasFim')
     let br2 = document.createElement('br')
-    let inputFim = document.createElement('input')
-    inputFim.className = "form-control"
-    inputFim.type = "date"
-    inputFim.id = "inputFim" + count
+    let inputFim = inputInicioFim("inputFim", count)
     div.appendChild(br2)
     div.appendChild(inputFim)
     count += 1
+}
+
+function inputOutra(select) {
+    if (select.value == "Outra") {
+        numId = select.id[select.id.length - 1]
+        let inputOutro = document.createElement('input')
+        inputOutro.className = "form-control"
+        inputOutro.id = select.id
+        inputOutro.type = "text"
+        let div = document.getElementById('ausencias')
+        div.removeChild(select)
+        div = document.getElementById('ausenciasInicio')
+        let inputInicio = document.getElementById('inputInicio' + numId)
+        div.removeChild(inputInicio)
+        div = document.getElementById('ausenciasFim')
+        let inputFim = document.getElementById('inputFim' + numId)
+        div.removeChild(inputFim)
+        div = document.getElementById('ausencias')
+        div.appendChild(inputOutro)
+        div = document.getElementById('ausenciasInicio')
+        inputInicio = inputInicioFim("inputInicio", numId)
+        div.appendChild(inputInicio)
+        div = document.getElementById('ausenciasFim')
+        inputFim = inputInicioFim("inputFim", numId)
+        div.appendChild(inputFim)
+    }
 }
