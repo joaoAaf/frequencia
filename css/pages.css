@@ -1,20 +1,9 @@
-/*
- * Globals
- */
-
-
-/* Custom default button */
 .btn-light,
 .btn-light:hover,
 .btn-light:focus {
   color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
+  text-shadow: none;
 }
-
-
-/*
- * Base structure
- */
 
 body {
   background-image: radial-gradient(ellipse at center, #19882c 10%, #025310 90%);
@@ -25,11 +14,6 @@ body {
 .cover-container {
   max-width: 42em;
 }
-
-
-/*
- * Header
- */
 
 .nav-masthead .nav-link {
   color: rgba(255, 255, 255, .5);
@@ -48,4 +32,44 @@ body {
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+.main {
+  max-height: 80%;
+  padding: 0px;
+}
+
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+.div_main {
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: darkgray;
+}
+
+.div_main::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+
+}
+
+.div_main::-webkit-scrollbar-track {
+  background: transparent;
+  padding: 2px;
+  border-radius: 10px;
+}
+
+.div_main::-webkit-scrollbar-corner {
+  border-radius: 10px;
+}
+
+.div_main::-webkit-scrollbar-thumb {
+  background-color: darkgray;
+  border-radius: 10px;
 }
