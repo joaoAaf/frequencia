@@ -48,7 +48,6 @@ function inputInicioFim(prefixId, numId) {
     return input
 }
 
-
 function criaAusencia() {
     let div = document.getElementById('ausencias')
     let br0 = document.createElement('br')
