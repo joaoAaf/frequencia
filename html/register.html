@@ -184,13 +184,15 @@
             </div>
             <div id="ausencias" class="col-md-6">
               <label class="form-label">Ausencias</label>
-              <select class="form-control" id="inputAusencia0">
+              <select onchange="inputOutra(this)" class="form-control" id="inputAusencia0">
                 <option value="">Selecione o Tipo de Ausencia</option>
                 <option>Férias</option>
                 <option>Licença</option>
                 <option>Licença Trat. Saúde</option>
                 <option>Recesso</option>
                 <option>Feriado</option>
+                <option>Trabalho Remoto</option>
+                <option>Outra</option>
               </select>
             </div>
             <div id="ausenciasInicio" class="col-md-3">
